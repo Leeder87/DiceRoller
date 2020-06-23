@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RollActivity">
+
+    <TextView
+        android:id="@+id/resultRoll"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="casual"
+        android:shadowColor="#BC3D3D"
+        android:shadowRadius="5"
+        android:text="3434"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="36sp"
+        android:typeface="monospace"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnD20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="151dp"
+        android:layout_marginEnd="30dp"
+        android:text="d20"
+        app:layout_constraintEnd_toStartOf="@+id/btnD10"
+        app:layout_constraintTop_toBottomOf="@+id/resultRoll" />
+
+    <Button
+        android:id="@+id/btnD10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="151dp"
+        android:text="d10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultRoll" />
+
+    <Button
+        android:id="@+id/btnD6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="151dp"
+        android:text="d6"
+        app:layout_constraintStart_toEndOf="@+id/btnD10"
+        app:layout_constraintTop_toBottomOf="@+id/resultRoll" />
+
+    <Button
+        android:id="@+id/btnD12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="31dp"
+        android:text="d12"
+        app:layout_constraintEnd_toStartOf="@+id/btnD8"
+        app:layout_constraintTop_toBottomOf="@+id/btnD20" />
+
+    <Button
+        android:id="@+id/btnD8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="39dp"
+        android:text="d8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnD10" />
+
+    <Button
+        android:id="@+id/btnD4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="39dp"
+        android:text="d4"
+        app:layout_constraintStart_toEndOf="@+id/btnD8"
+        app:layout_constraintTop_toBottomOf="@+id/btnD6" />
+
+    <Button
+        android:id="@+id/btnD100"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="118dp"
+        android:layout_marginTop="41dp"
+        android:text="d100"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnD12" />
+</androidx.constraintlayout.widget.ConstraintLayout>
