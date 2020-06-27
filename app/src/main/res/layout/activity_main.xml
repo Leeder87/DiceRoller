@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#7E7A7A"
+    android:background="#673AB7"
     tools:context=".MainActivity">
 
     <ImageView
@@ -18,27 +18,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/star_big_on" />
+        app:srcCompat="@android:drawable/star_big_on"
+        tools:ignore="ContentDescription" />
 
     <Button
         android:id="@+id/btnRoll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50sp"
+        android:layout_marginLeft="50sp"
+        android:layout_marginRight="50sp"
         android:layout_marginBottom="32dp"
-        android:layout_marginRight="100sp"
-        android:layout_marginLeft="100sp"
-        android:text="Roll"
+        android:background="@drawable/roll"
         app:layout_constraintBottom_toTopOf="@+id/btnFormula"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/btnFormula"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50sp"
+        android:layout_marginLeft="50sp"
+        android:layout_marginRight="50sp"
         android:layout_marginBottom="32dp"
-        android:layout_marginRight="100sp"
-        android:layout_marginLeft="100sp"
-        android:text="Formula"
+        android:background="@drawable/custom_roll"
         app:layout_constraintBottom_toTopOf="@+id/btnSystems"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,11 +49,12 @@
         android:id="@+id/btnSystems"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:layout_marginRight="100sp"
         android:layout_marginLeft="100sp"
+        android:layout_marginRight="100sp"
+        android:layout_marginBottom="32dp"
         android:text="Systems"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/btnFormula"
-        app:layout_constraintTop_toBottomOf="@+id/btnFormula" />
+        app:layout_constraintTop_toBottomOf="@+id/btnFormula"
+        tools:ignore="HardcodedText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
