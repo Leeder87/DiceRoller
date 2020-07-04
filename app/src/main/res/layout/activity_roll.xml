@@ -8,7 +8,7 @@
     tools:context=".RollActivity">
 
     <TextView
-        android:id="@+id/resultRoll"
+        android:id="@+id/txtResultRoll"
         android:layout_width="250dp"
         android:layout_height="150dp"
         android:layout_marginStart="80dp"
@@ -16,14 +16,15 @@
         android:fontFamily="casual"
         android:shadowColor="#03DAC5"
         android:shadowRadius="5"
-        android:text="3434"
+        android:text="Нажмите кнопку:"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#03DAC5"
         android:textSize="36sp"
         android:typeface="monospace"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/btnD20"
@@ -33,7 +34,8 @@
         android:layout_marginEnd="30dp"
         android:text="d20"
         app:layout_constraintEnd_toStartOf="@+id/btnD10"
-        app:layout_constraintTop_toBottomOf="@+id/resultRoll" />
+        app:layout_constraintTop_toBottomOf="@+id/txtResultRoll"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/btnD10"
@@ -43,7 +45,8 @@
         android:layout_marginTop="100dp"
         android:text="d10"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultRoll" />
+        app:layout_constraintTop_toBottomOf="@+id/txtResultRoll"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/btnD6"
@@ -53,7 +56,8 @@
         android:layout_marginTop="100dp"
         android:text="d6"
         app:layout_constraintStart_toEndOf="@+id/btnD10"
-        app:layout_constraintTop_toBottomOf="@+id/resultRoll" />
+        app:layout_constraintTop_toBottomOf="@+id/txtResultRoll"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/btnD12"
@@ -63,7 +67,8 @@
         android:layout_marginEnd="31dp"
         android:text="d12"
         app:layout_constraintEnd_toStartOf="@+id/btnD8"
-        app:layout_constraintTop_toBottomOf="@+id/btnD20" />
+        app:layout_constraintTop_toBottomOf="@+id/btnD20"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/btnD8"
@@ -73,7 +78,8 @@
         android:layout_marginTop="39dp"
         android:text="d8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnD10" />
+        app:layout_constraintTop_toBottomOf="@+id/btnD10"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/btnD4"
@@ -83,7 +89,8 @@
         android:layout_marginTop="39dp"
         android:text="d4"
         app:layout_constraintStart_toEndOf="@+id/btnD8"
-        app:layout_constraintTop_toBottomOf="@+id/btnD6" />
+        app:layout_constraintTop_toBottomOf="@+id/btnD6"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/btnD100"
@@ -93,5 +100,6 @@
         android:layout_marginTop="41dp"
         android:text="d100"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnD12" />
+        app:layout_constraintTop_toBottomOf="@+id/btnD12"
+        tools:ignore="HardcodedText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

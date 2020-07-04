@@ -2,7 +2,6 @@ package com.example.diceroller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,7 +32,7 @@ public class RollActivity extends AppCompatActivity {
         btnD100 = findViewById(R.id.btnD100);
         // Этот список кнопок нужен для оптимизации блокировки и разблокировки кнопок
         final Button[] btnList = new Button[] {btnD4, btnD6, btnD8, btnD10, btnD12, btnD20, btnD100};
-        resultTextView = findViewById(R.id.resultRoll);
+        resultTextView = findViewById(R.id.txtResultRoll);
 
 
         // Далее мы назначаем каждой кнопке обработчик события onClick с аналогичным функционалом.
@@ -111,7 +110,7 @@ public class RollActivity extends AppCompatActivity {
         }
 
         // Генерируем криптослучайное число от 1 до i - максимального числа граней на кубике
-        int result = generateRandomInt(i);
+        int result = RandomGenerator.generateInt(i);
         String strResult = String.valueOf(result);
         // Запишем в окно вывода получившееся число
         resultTextView.setText(strResult);
@@ -128,7 +127,7 @@ public class RollActivity extends AppCompatActivity {
         resultTextView.postDelayed(new Runnable() {
             @Override
             public void run() {
-                int result = generateRandomInt(i);
+                int result = RandomGenerator.generateInt(i);
                 String strResult = String.valueOf(result);
                 resultTextView.setText(strResult);
             }
@@ -136,7 +135,7 @@ public class RollActivity extends AppCompatActivity {
         resultTextView.postDelayed(new Runnable() {
             @Override
             public void run() {
-                int result = generateRandomInt(i);
+                int result = RandomGenerator.generateInt(i);
                 String strResult = String.valueOf(result);
                 resultTextView.setText(strResult);
                 // В последнем отложенном задании снова разблокируем кнопки
@@ -147,12 +146,5 @@ public class RollActivity extends AppCompatActivity {
         }, changeTime * 2);
     }
 
-    // Крипторандомный генератор
-    private int generateRandomInt(int max) {
-        // create instance of SecureRandom class
-        SecureRandom rand = new SecureRandom();
 
-        // Generate random integers in range 1 to max
-        return rand.nextInt(max) + 1;
-    }
 }

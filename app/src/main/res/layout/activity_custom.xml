@@ -8,7 +8,7 @@
     tools:context=".CustomActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnRoll"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:layout_marginLeft="50sp"
@@ -17,11 +17,11 @@
         android:background="@drawable/roll"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/editFormula" />
 
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editFormula"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50sp"
@@ -29,13 +29,14 @@
         android:layout_marginBottom="41dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btnRoll"
+        app:layout_constraintStart_toStartOf="@+id/btnRoll"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="LabelFor,MissingConstraints"
+        android:importantForAutofill="no" />
 
     <TextView
-        android:id="@+id/resultRoll"
+        android:id="@+id/txtResultRoll"
         android:layout_width="250dp"
         android:layout_height="150dp"
         android:layout_marginStart="80dp"
@@ -43,7 +44,7 @@
         android:fontFamily="casual"
         android:shadowColor="#03DAC5"
         android:shadowRadius="5"
-        android:text="13"
+        android:text="Введите формулу броска:"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#03DAC5"
