@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4D4385"
+    android:background="#329393"
     tools:context=".CustomActivity">
 
     <Button
@@ -27,24 +27,26 @@
         android:layout_marginStart="50sp"
         android:layout_marginTop="380dp"
         android:layout_marginBottom="41dp"
+        android:alpha="20"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/btnRoll"
         app:layout_constraintStart_toStartOf="@+id/btnRoll"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="LabelFor,MissingConstraints"
-        android:importantForAutofill="no" />
+        tools:ignore="LabelFor,MissingConstraints" />
 
     <TextView
         android:id="@+id/txtResultRoll"
-        android:layout_width="250dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="250sp"
+        android:layout_height="150sp"
+        android:layout_marginStart="80sp"
+        android:layout_marginTop="160sp"
         android:fontFamily="casual"
         android:shadowColor="#03DAC5"
         android:shadowRadius="5"
-        android:text="Введите формулу броска:"
+        android:text="Enter a throw formula:"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#03DAC5"
@@ -54,4 +56,13 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

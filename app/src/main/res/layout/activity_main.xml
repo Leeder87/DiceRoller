@@ -4,21 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4D4385"
+    android:background="#329393"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="142dp"
-        android:layout_height="0dp"
-
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="85dp"
+        android:layout_width="170sp"
+        android:layout_height="280sp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toTopOf="@+id/btnRoll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/star_big_on"
+        android:background="@drawable/main_pic"
         tools:ignore="ContentDescription" />
 
     <Button
@@ -27,7 +26,7 @@
         android:layout_height="50sp"
         android:layout_marginLeft="50sp"
         android:layout_marginRight="50sp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/roll"
         app:layout_constraintBottom_toTopOf="@+id/btnFormula"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -38,7 +37,7 @@
         android:layout_height="50sp"
         android:layout_marginLeft="50sp"
         android:layout_marginRight="50sp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/custom_roll"
         app:layout_constraintBottom_toTopOf="@+id/btnSystems"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,13 +47,33 @@
     <Button
         android:id="@+id/btnSystems"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100sp"
-        android:layout_marginRight="100sp"
-        android:layout_marginBottom="32dp"
-        android:text="Systems"
+        android:layout_height="50sp"
+        android:layout_marginLeft="50sp"
+        android:layout_marginRight="50sp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/the_system"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/btnFormula"
         app:layout_constraintTop_toBottomOf="@+id/btnFormula"
         tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/btnInfo"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/i"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnExit"
+        android:layout_width="100sp"
+        android:layout_height="50sp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/exit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
