@@ -9,12 +9,28 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class CustomActivity extends AppCompatActivity {
+    private Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom);
         setButtonRoll();
+        setButtons(); // Вызов метода, привязывающего к кнопкам обработчики
+    }
+
+    // Метод для настройки обработчиков кнопок
+    private void setButtons() {
+        btnBack = findViewById(R.id.btnBack);
+
+        btnBack.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        finish();
+                    }
+                }
+        );
     }
 
     // Настраиваем обработчик кнопки Roll

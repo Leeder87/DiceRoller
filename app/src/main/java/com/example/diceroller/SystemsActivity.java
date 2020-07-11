@@ -6,13 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class HistoryActivity extends AppCompatActivity {
+public class SystemsActivity extends AppCompatActivity {
     private Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_history);
+        setContentView(R.layout.activity_system);
 
         setButtons(); // Вызов метода, привязывающего к кнопкам обработчики
     }
@@ -30,4 +30,5 @@ public class HistoryActivity extends AppCompatActivity {
                 }
         );
     }
+
 }

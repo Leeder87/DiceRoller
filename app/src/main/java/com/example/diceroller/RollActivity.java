@@ -11,6 +11,7 @@ import java.security.SecureRandom;
 
 public class RollActivity extends AppCompatActivity {
     private Button btnD20, btnD12, btnD10, btnD8, btnD6, btnD4, btnD100;
+    private Button btnBack;
     private TextView resultTextView;
 
     @Override
@@ -30,10 +31,19 @@ public class RollActivity extends AppCompatActivity {
         btnD6 = findViewById(R.id.btnD6);
         btnD4 = findViewById(R.id.btnD4);
         btnD100 = findViewById(R.id.btnD100);
+        btnBack = findViewById(R.id.btnBack);
         // Этот список кнопок нужен для оптимизации блокировки и разблокировки кнопок
         final Button[] btnList = new Button[] {btnD4, btnD6, btnD8, btnD10, btnD12, btnD20, btnD100};
         resultTextView = findViewById(R.id.txtResultRoll);
 
+        btnBack.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        finish();
+                    }
+                }
+        );
 
         // Далее мы назначаем каждой кнопке обработчик события onClick с аналогичным функционалом.
         // Он отличается только числом граней на кубике. Это пригодится в дальнейшем.
