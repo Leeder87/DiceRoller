@@ -2,11 +2,18 @@ package com.example.diceroller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.diceroller.data.DatabaseAdapter;
+import com.example.diceroller.data.DatabaseHelper;
+import com.example.diceroller.data.HistoryRecord;
+
+import java.util.Date;
 
 public class CustomActivity extends AppCompatActivity {
     private Button btnBack;
@@ -58,6 +65,12 @@ public class CustomActivity extends AppCompatActivity {
                         else
                             parser.result = "Введите формулу броска:";
                         txtResult.setText(parser.result);
+                        HistoryRecord historyRecord = new HistoryRecord(new Date(), parser.formula,
+                                parser.prettyFormula, parser.result, "Custom");
+                        DatabaseAdapter adapter = new DatabaseAdapter(getBaseContext());
+                        adapter.open();
+                        adapter.insert(historyRecord);
+                        adapter.close();
                     }
                 }
         );
