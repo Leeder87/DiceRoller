@@ -64,13 +64,13 @@ public class CustomActivity extends AppCompatActivity {
                         }
                         else
                             parser.result = "Введите формулу броска:";
+
                         txtResult.setText(parser.result);
+
+                        // Подготавливаем запись для истории бросков
                         HistoryRecord historyRecord = new HistoryRecord(new Date(), parser.formula,
                                 parser.prettyFormula, parser.result, "Custom");
-                        DatabaseAdapter adapter = new DatabaseAdapter(getBaseContext());
-                        adapter.open();
-                        adapter.insert(historyRecord);
-                        adapter.close();
+                        DatabaseHelper.insertRecord(getBaseContext(), historyRecord);
                     }
                 }
         );

@@ -7,7 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.diceroller.data.DatabaseHelper;
+import com.example.diceroller.data.HistoryRecord;
+
 import java.security.SecureRandom;
+import java.util.Date;
 
 public class RollActivity extends AppCompatActivity {
     private Button btnD20, btnD12, btnD10, btnD8, btnD6, btnD4, btnD100;
@@ -148,6 +152,12 @@ public class RollActivity extends AppCompatActivity {
                 int result = RandomGenerator.generateInt(i);
                 String strResult = String.valueOf(result);
                 resultTextView.setText(strResult);
+
+                // Подготавливаем запись для истории бросков
+                HistoryRecord historyRecord = new HistoryRecord(new Date(), "1d" + i,
+                        "1d" + i, strResult, "Simple Roll");
+                DatabaseHelper.insertRecord(getBaseContext(), historyRecord);
+
                 // В последнем отложенном задании снова разблокируем кнопки
                 for (Button btn : btnList) {
                     btn.setEnabled(true);

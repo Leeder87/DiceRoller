@@ -3,10 +3,6 @@ package com.example.diceroller.data;
 import android.content.Context;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
-import android.view.View;
-import android.widget.ArrayAdapter;
-
-import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "diceroller.db"; // название бд
@@ -36,13 +32,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_AREA + " TEXT);"
         );
         // добавление начальных данных
-        db.execSQL("INSERT INTO "+ TABLE +" (" + COLUMN_ROLL_TIME + ", " + COLUMN_FORMULA_RAW  + ", "
-                 + COLUMN_FORMULA_PROCESSED + ", " + COLUMN_RESULT  + ", "
-                 + COLUMN_AREA + ") VALUES (12315256541, '1d20+5', '16+5', '21', 'Simple Roll');");
+        //db.execSQL("INSERT INTO "+ TABLE +" (" + COLUMN_ROLL_TIME + ", " + COLUMN_FORMULA_RAW  + ", "
+        //      + COLUMN_FORMULA_PROCESSED + ", " + COLUMN_RESULT  + ", "
+        //      + COLUMN_AREA + ") VALUES (12315256541, '1d20+5', '16+5', '21', 'Simple Roll');");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion,  int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE);
         onCreate(db);
+    }
+
+    // Статический метод для вставки записи в таблицу истории бросков
+    public static void insertRecord(Context baseContext, HistoryRecord historyRecord) {
+        DatabaseAdapter adapter = new DatabaseAdapter(baseContext);
+        adapter.open();
+        adapter.insert(historyRecord);
+        adapter.close();
     }
 }
