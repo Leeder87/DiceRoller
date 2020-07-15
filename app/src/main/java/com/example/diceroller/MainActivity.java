@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -13,13 +14,19 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private Button btnRoll, btnFormula, btnSystems, btnInfo, btnExit;
-
+    private MediaPlayer SelectSound;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SelectSound = MediaPlayer.create(this, R.raw.select);
+
         setButtons(); // Вызов метода, привязывающего к кнопкам обработчики
+    }
+
+    public void soundPlay (MediaPlayer sound) {
+        sound.start();
     }
 
     // Метод для настройки обработчиков кнопок
@@ -34,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        //soundPlay(SelectSound); это строчка является шаблоном для воспроизведения звука
                         Intent intent = new Intent(".RollActivity");
                         startActivity(intent);
                     }
