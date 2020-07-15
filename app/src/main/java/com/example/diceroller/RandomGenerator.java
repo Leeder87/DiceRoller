@@ -8,7 +8,8 @@ public class RandomGenerator {
         // create instance of SecureRandom class
         SecureRandom rand = new SecureRandom();
 
-        // Generate random integers in range 1 to max
+        // Generate random integers in range 1 to maxxxxx
+        // Другой коммент для конфликта
         return rand.nextInt(max) + 1;
     }
 }
