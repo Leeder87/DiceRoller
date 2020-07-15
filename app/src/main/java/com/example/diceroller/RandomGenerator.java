@@ -10,6 +10,7 @@ public class RandomGenerator {
 
         // Generate random integers in range 1 to max
         // Я хочу сделать конфликт
+        // Другой коммент для конфликта
         return rand.nextInt(max) + 1;
     }
 }
