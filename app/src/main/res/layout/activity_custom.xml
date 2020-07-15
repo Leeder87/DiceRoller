@@ -43,7 +43,7 @@
         android:layout_height="150sp"
         android:layout_marginStart="80sp"
         android:layout_marginTop="160sp"
-        android:fontFamily="casual"
+        android:fontFamily="@font/saoui"
         android:shadowColor="#03DAC5"
         android:shadowRadius="5"
         android:text="Enter a throw formula:"
