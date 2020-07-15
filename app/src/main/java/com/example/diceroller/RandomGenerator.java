@@ -9,7 +9,7 @@ public class RandomGenerator {
         SecureRandom rand = new SecureRandom();
 
         // Generate random integers in range 1 to max
+        // Я хочу сделать конфликт
         return rand.nextInt(max) + 1;
     }
 }
-
