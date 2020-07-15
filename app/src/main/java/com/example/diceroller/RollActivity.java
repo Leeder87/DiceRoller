@@ -121,6 +121,7 @@ public class RollActivity extends AppCompatActivity {
         // Заблокируем все кнопки-дайсы
         for (Button btn : btnList) {
             btn.setEnabled(false);
+            btn.setAlpha((float) 0.5);
         }
 
         // Генерируем криптослучайное число от 1 до i - максимального числа граней на кубике
@@ -161,6 +162,7 @@ public class RollActivity extends AppCompatActivity {
                 // В последнем отложенном задании снова разблокируем кнопки
                 for (Button btn : btnList) {
                     btn.setEnabled(true);
+                    btn.setAlpha((float) 1);
                 }
             }
         }, changeTime * 2);

@@ -59,11 +59,11 @@ public class CustomActivity extends AppCompatActivity {
                                 parser.parse();
                             } catch (Exception ex) {
                                 // Тут надо будет залогировать исключение
-                                parser.result = "Ошибка";
+                                parser.result = "Error";
                             }
                         }
                         else
-                            parser.result = "Введите формулу броска:";
+                            parser.result = "Enter a throw formula:";
 
                         txtResult.setText(parser.result);
 
