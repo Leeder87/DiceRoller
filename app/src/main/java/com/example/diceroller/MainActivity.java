@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        //soundPlay(SelectSound); это строчка является шаблоном для воспроизведения звука
+                        soundPlay(SelectSound); //это строчка является шаблоном для воспроизведения звука
                         Intent intent = new Intent(".RollActivity");
                         startActivity(intent);
                     }
