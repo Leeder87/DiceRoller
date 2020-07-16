@@ -75,7 +75,7 @@ public class FormulaParser {
         // В результате в списке данных для обработки должен остаться только один элемент
         // Если это так, то вот он результат. Если нет, то кидаем ошибку
         if(processedParts.size() != 1) {
-            throw new Exception("Неоднозначный результат");
+            throw new Exception("Ambiguous result");
         }
         else {
             result = processedParts.get(0);
