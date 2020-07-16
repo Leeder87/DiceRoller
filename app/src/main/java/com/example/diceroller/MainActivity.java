@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(".InfoActivity");
+                        Intent intent = new Intent(".PropertiesActivity");
                         startActivity(intent);
                     }
                 }
