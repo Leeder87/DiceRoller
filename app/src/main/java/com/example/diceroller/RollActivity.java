@@ -55,7 +55,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        onBtnClick(btnList, 20);
+                        onBtnClick(btnList, (Button) view,20);
                     }
                 }
         );
@@ -64,7 +64,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        onBtnClick(btnList, 12);
+                        onBtnClick(btnList, (Button) view, 12);
                     }
                 }
         );
@@ -73,7 +73,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        onBtnClick(btnList, 10);
+                        onBtnClick(btnList, (Button) view, 10);
                     }
                 }
         );
@@ -82,7 +82,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        onBtnClick(btnList, 8);
+                        onBtnClick(btnList, (Button) view, 8);
                     }
                 }
         );
@@ -91,7 +91,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        onBtnClick(btnList, 6);
+                        onBtnClick(btnList, (Button) view, 6);
                     }
                 }
         );
@@ -100,7 +100,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        onBtnClick(btnList, 4);
+                        onBtnClick(btnList, (Button) view, 4);
                     }
                 }
         );
@@ -109,7 +109,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        onBtnClick(btnList, 100);
+                        onBtnClick(btnList, (Button) view, 100);
                     }
                 }
         );
@@ -117,11 +117,13 @@ public class RollActivity extends AppCompatActivity {
     }
 
     // Этот метод объединяет универсальную функциональность для кнопок-дайсов.
-    private void onBtnClick(final Button[] btnList, final int i) {
+    private void onBtnClick(final Button[] btnList, Button source, final int i) {
         // Заблокируем все кнопки-дайсы
         for (Button btn : btnList) {
-            btn.setEnabled(false);
-            btn.setAlpha((float) 0.5);
+            if(btn != source) {
+                btn.setEnabled(false);
+                btn.setAlpha((float) 0.5);
+            }
         }
 
         // Генерируем криптослучайное число от 1 до i - максимального числа граней на кубике
