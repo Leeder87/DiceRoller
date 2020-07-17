@@ -9,56 +9,51 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="170sp"
-        android:layout_height="280sp"
-        android:layout_marginTop="70dp"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnRoll"
+        android:layout_width="140sp"
+        android:layout_height="250sp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="121dp"
+        android:background="@drawable/main_pic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/main_pic"
         tools:ignore="ContentDescription" />
 
     <Button
         android:id="@+id/btnRoll"
-        android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:layout_marginLeft="50sp"
-        android:layout_marginRight="50sp"
-        android:layout_marginBottom="30dp"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="56dp"
         android:background="@drawable/roll"
-        app:layout_constraintBottom_toTopOf="@+id/btnFormula"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/btnFormula"
-        android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:layout_marginLeft="50sp"
-        android:layout_marginRight="50sp"
-        android:layout_marginBottom="30dp"
+        android:layout_width="300dp"
+        android:layout_height="45sp"
+        android:layout_marginTop="35dp"
         android:background="@drawable/custom_roll"
-        app:layout_constraintBottom_toTopOf="@+id/btnSystems"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnRoll"
         app:layout_constraintTop_toBottomOf="@+id/btnRoll" />
 
     <Button
         android:id="@+id/btnSystems"
-        android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:layout_marginLeft="50sp"
-        android:layout_marginRight="50sp"
-        android:layout_marginBottom="30dp"
+        android:layout_width="300dp"
+        android:layout_height="45sp"
+        android:layout_marginTop="115dp"
         android:background="@drawable/the_system"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/btnFormula"
-        app:layout_constraintTop_toBottomOf="@+id/btnFormula"
+        app:layout_constraintEnd_toEndOf="@+id/btnFormula"
+        app:layout_constraintTop_toBottomOf="@+id/btnRoll"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/btnInfo"
+        android:id="@+id/btnProperties"
         android:layout_width="50sp"
         android:layout_height="50sp"
         android:layout_marginStart="15dp"
@@ -69,8 +64,8 @@
 
     <Button
         android:id="@+id/btnExit"
-        android:layout_width="100sp"
-        android:layout_height="50sp"
+        android:layout_width="90sp"
+        android:layout_height="45sp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         android:background="@drawable/exit"

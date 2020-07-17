@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btnRoll, btnFormula, btnSystems, btnInfo, btnExit;
+    private Button btnRoll, btnFormula, btnSystems, btnProperties, btnExit;
     private MediaPlayer SelectSound;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +34,14 @@ public class MainActivity extends AppCompatActivity {
         btnRoll = findViewById(R.id.btnRoll);
         btnFormula = findViewById(R.id.btnFormula);
         btnSystems = findViewById(R.id.btnSystems);
-        btnInfo = findViewById(R.id.btnInfo);
+        btnProperties = findViewById(R.id.btnProperties);
         btnExit = findViewById(R.id.btnExit);
 
         btnRoll.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        //soundPlay(SelectSound); это строчка является шаблоном для воспроизведения звука
+                        //soundPlay(SelectSound); //это строчка является шаблоном для воспроизведения звука
                         Intent intent = new Intent(".RollActivity");
                         startActivity(intent);
                     }
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
-        btnInfo.setOnClickListener(
+        btnProperties.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

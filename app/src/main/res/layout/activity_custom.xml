@@ -7,34 +7,32 @@
     android:background="#329393"
     tools:context=".CustomActivity">
 
+
     <Button
         android:id="@+id/btnRoll"
-        android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:layout_marginLeft="50sp"
-        android:layout_marginRight="50sp"
-        android:layout_marginBottom="195dp"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="56dp"
         android:background="@drawable/roll"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editFormula" />
 
-
     <EditText
         android:id="@+id/editFormula"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50sp"
-        android:layout_marginTop="380dp"
-        android:layout_marginBottom="41dp"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="80dp"
         android:alpha="20"
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/btnRoll"
-        app:layout_constraintStart_toStartOf="@+id/btnRoll"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#9ad6ff"
+        app:layout_constraintEnd_toEndOf="@+id/txtResultRoll"
+        app:layout_constraintTop_toBottomOf="@+id/txtResultRoll"
         tools:ignore="LabelFor,MissingConstraints" />
 
     <TextView
@@ -43,15 +41,17 @@
         android:layout_height="150sp"
         android:layout_marginStart="80sp"
         android:layout_marginTop="160sp"
+        android:layout_marginEnd="80dp"
         android:fontFamily="@font/saoui"
         android:shadowColor="#03DAC5"
         android:shadowRadius="0"
         android:text="Enter a throw formula:"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#03DAC5"
+        android:textColor="#9ad6ff"
         android:textSize="36sp"
         android:typeface="monospace"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
