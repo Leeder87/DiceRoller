@@ -27,6 +27,7 @@ public class SystemsActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        view.startAnimation(btnScale);
                         finish();
                     }
                 }
