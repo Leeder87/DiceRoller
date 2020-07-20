@@ -36,7 +36,7 @@
         android:layout_marginEnd="20dp"
         android:fontFamily="@font/saoui"
         android:letterSpacing="0.05"
-        android:text="Switch Off/ON"
+        android:text="Sound Off/On"
         android:textColor="#9ad6ff"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
