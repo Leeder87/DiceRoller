@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SelectSound = MediaPlayer.create(this, R.raw.select);
+        SelectSound = MediaPlayer.create(this, R.raw.select_menu);
         // получаем первоначальные настройки
         settings = getSharedPreferences(PREFS_FILE, MODE_PRIVATE);
         soundOn = settings.getBoolean(PREF_SOUND, true);
