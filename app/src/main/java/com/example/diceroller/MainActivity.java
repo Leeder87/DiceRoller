@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        soundPlay(SelectSound);
                         Intent intent = new Intent(".PropertiesActivity");
                         view.startAnimation(btnScale);
                         startActivity(intent);
@@ -114,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
                     @Override
                     public void onClick(View view) {
+                        soundPlay(SelectSound);
                         AlertDialog.Builder a_builder = new AlertDialog.Builder(MainActivity.this);
                         view.startAnimation(btnScale);
                         a_builder.setMessage("Are you sure you want to quit?")
@@ -121,12 +123,14 @@ public class MainActivity extends AppCompatActivity {
                                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
+                                        soundPlay(SelectSound);
                                         finish();
                                     }
                                 })
                                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
+                                        soundPlay(SelectSound);
                                         dialogInterface.cancel();
                                     }
                                 });
