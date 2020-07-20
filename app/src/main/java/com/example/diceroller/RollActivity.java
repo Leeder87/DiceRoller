@@ -1,15 +1,14 @@
 package com.example.diceroller;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.example.diceroller.data.DatabaseHelper;
 import com.example.diceroller.data.HistoryRecord;
-
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import java.security.SecureRandom;
 import java.util.Date;
 
@@ -28,6 +27,7 @@ public class RollActivity extends AppCompatActivity {
 
     // Метод для настройки обработчиков кнопок
     private void setButtons() {
+        final Animation btnScale = AnimationUtils.loadAnimation(this, R.anim.scale);
         btnD20 = findViewById(R.id.btnD20);
         btnD12 = findViewById(R.id.btnD12);
         btnD10 = findViewById(R.id.btnD10);
@@ -44,6 +44,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        view.startAnimation(btnScale);
                         finish();
                     }
                 }
@@ -55,6 +56,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        view.startAnimation(btnScale);
                         onBtnClick(btnList, (Button) view,20);
                     }
                 }
@@ -64,6 +66,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        view.startAnimation(btnScale);
                         onBtnClick(btnList, (Button) view, 12);
                     }
                 }
@@ -73,6 +76,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        view.startAnimation(btnScale);
                         onBtnClick(btnList, (Button) view, 10);
                     }
                 }
@@ -82,6 +86,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        view.startAnimation(btnScale);
                         onBtnClick(btnList, (Button) view, 8);
                     }
                 }
@@ -91,6 +96,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        view.startAnimation(btnScale);
                         onBtnClick(btnList, (Button) view, 6);
                     }
                 }
@@ -100,6 +106,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        view.startAnimation(btnScale);
                         onBtnClick(btnList, (Button) view, 4);
                     }
                 }
@@ -109,6 +116,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        view.startAnimation(btnScale);
                         onBtnClick(btnList, (Button) view, 100);
                     }
                 }

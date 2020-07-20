@@ -1,10 +1,11 @@
 package com.example.diceroller;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 public class SystemsActivity extends AppCompatActivity {
     private Button btnBack;
@@ -19,6 +20,7 @@ public class SystemsActivity extends AppCompatActivity {
 
     // Метод для настройки обработчиков кнопок
     private void setButtons() {
+        final Animation btnScale = AnimationUtils.loadAnimation(this, R.anim.scale);
         btnBack = findViewById(R.id.btnBack);
 
         btnBack.setOnClickListener(
