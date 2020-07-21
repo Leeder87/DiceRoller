@@ -61,19 +61,28 @@ public class PropertiesActivity extends AppCompatActivity {
         // получаем настройки
         boolean soundOn = settings.getBoolean(PREF_SOUND, true);
         switchSound.setChecked(soundOn);
+        // В настройках время в миллисекундах, в сикбаре - в единицах.
+        // При этом 1 деление сикбара соответствует 500 миллисекундам.
+        long speed = settings.getLong(PREF_SPEED, 1)/500;
+        seekBarSpeed.setProgress((int)speed);
+        // В настройках от 1 до 5, в сикбаре от 0 до 4.
+        int numberOfRolls = settings.getInt(PREF_NOR, 1)-1;
+        seekBarNoR.setProgress(numberOfRolls);
     }
 
     @Override
     protected void onPause(){
         super.onPause();
 
-        //EditText nameBox = (EditText) findViewById(R.id.nameBox);
-        //String name = nameBox.getText().toString();
-
         boolean soundOn = switchSound.isChecked();
+        long speed = seekBarSpeed.getProgress()*500;
+        int numberOfRolls = seekBarNoR.getProgress() + 1;
+
         // сохраняем в настройках
         prefEditor = settings.edit();
         prefEditor.putBoolean(PREF_SOUND, soundOn);
+        prefEditor.putLong(PREF_SPEED, speed);
+        prefEditor.putInt(PREF_NOR, numberOfRolls);
         prefEditor.apply();
     }
 
