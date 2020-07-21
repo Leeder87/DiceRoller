@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#329393"
+
     tools:context=".MainActivity">
 
     <ImageView
@@ -58,7 +59,7 @@
         android:layout_height="50sp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
-        android:background="#325393"
+        android:background="@drawable/properties"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
