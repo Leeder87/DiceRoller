@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.media.MediaPlayer;
 import com.example.diceroller.data.DatabaseHelper;
 import com.example.diceroller.data.HistoryRecord;
 import android.view.animation.Animation;
@@ -25,6 +25,10 @@ public class RollActivity extends AppCompatActivity {
     private static final String PREFS_FILE = "DicerollerPrefs";
     private static final String PREF_NOR = "nor";
     private static final String PREF_SPEED = "speed";
+    private static final String PREF_SOUND = "sound";
+    boolean soundOn;
+    private MediaPlayer SelectSound;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +39,9 @@ public class RollActivity extends AppCompatActivity {
         settings = getSharedPreferences(PREFS_FILE, MODE_PRIVATE);
         speed = settings.getLong(PREF_SPEED, 1000);
         numberOfRolls = settings.getInt(PREF_NOR, 1);
-
+        SelectSound = MediaPlayer.create(this, R.raw.select_menu);
+        // получаем первоначальные настройки
+        soundOn = settings.getBoolean(PREF_SOUND, true);
         /*Toast.makeText(
                 RollActivity.this,
                 "speed: " + String.valueOf(speed),
@@ -49,11 +55,17 @@ public class RollActivity extends AppCompatActivity {
         // переполучаем настройки
         speed = settings.getLong(PREF_SPEED, 1000);
         numberOfRolls = settings.getInt(PREF_NOR, 1);
+        soundOn = settings.getBoolean(PREF_SOUND, true);
         /*Toast.makeText(
                 RollActivity.this,
                 "speed: " + String.valueOf(speed),
                 Toast.LENGTH_SHORT
         ).show();*/
+    }
+
+    public void soundPlay (MediaPlayer sound) {
+        if(soundOn)
+            sound.start();
     }
 
     // Метод для настройки обработчиков кнопок
@@ -75,6 +87,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        soundPlay(SelectSound);
                         view.startAnimation(btnScale);
                         finish();
                     }
@@ -87,6 +100,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        soundPlay(SelectSound);
                         view.startAnimation(btnScale);
                         onBtnClick(btnList, (Button) view,20);
                     }
@@ -97,6 +111,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        soundPlay(SelectSound);
                         view.startAnimation(btnScale);
                         onBtnClick(btnList, (Button) view, 12);
                     }
@@ -107,6 +122,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        soundPlay(SelectSound);
                         view.startAnimation(btnScale);
                         onBtnClick(btnList, (Button) view, 10);
                     }
@@ -117,6 +133,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        soundPlay(SelectSound);
                         view.startAnimation(btnScale);
                         onBtnClick(btnList, (Button) view, 8);
                     }
@@ -127,6 +144,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        soundPlay(SelectSound);
                         view.startAnimation(btnScale);
                         onBtnClick(btnList, (Button) view, 6);
                     }
@@ -137,6 +155,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        soundPlay(SelectSound);
                         view.startAnimation(btnScale);
                         onBtnClick(btnList, (Button) view, 4);
                     }
@@ -147,6 +166,7 @@ public class RollActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        soundPlay(SelectSound);
                         view.startAnimation(btnScale);
                         onBtnClick(btnList, (Button) view, 100);
                     }

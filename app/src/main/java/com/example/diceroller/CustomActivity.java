@@ -2,6 +2,7 @@ package com.example.diceroller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,11 +13,17 @@ import com.example.diceroller.data.DatabaseHelper;
 import com.example.diceroller.data.HistoryRecord;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.media.MediaPlayer;
 
 import java.util.Date;
 
 public class CustomActivity extends AppCompatActivity {
     private Button btnBack, btnRoll;
+    private MediaPlayer SelectSound;
+    private static final String PREFS_FILE = "DicerollerPrefs";
+    private static final String PREF_SOUND = "sound";
+    boolean soundOn;
+    SharedPreferences settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +31,27 @@ public class CustomActivity extends AppCompatActivity {
         setContentView(R.layout.activity_custom);
         setButtonRoll();
         setButtons(); // Вызов метода, привязывающего к кнопкам обработчики
+        SelectSound = MediaPlayer.create(this, R.raw.select_menu);
+        // получаем первоначальные настройки
+        settings = getSharedPreferences(PREFS_FILE, MODE_PRIVATE);
+        soundOn = settings.getBoolean(PREF_SOUND, true);
+        setButtons(); // Вызов метода, привязывающего к кнопкам обработчики
     }
+    protected void onResume() {
+        super.onResume();
+        // переполучаем настройки
+        soundOn = settings.getBoolean(PREF_SOUND, true);
+        /*Toast.makeText(
+                MainActivity.this,
+                "soundOn: " + String.valueOf(soundOn),
+                Toast.LENGTH_SHORT
+        ).show();*/
+    }
+    public void soundPlay (MediaPlayer sound) {
+        if(soundOn)
+            sound.start();
+    }
+
 
     // Метод для настройки обработчиков кнопок
     private void setButtons() {
@@ -35,6 +62,7 @@ public class CustomActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        soundPlay(SelectSound);
                         view.startAnimation(btnScale);
                         finish();
                     }
@@ -53,6 +81,7 @@ public class CustomActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        soundPlay(SelectSound);
                         view.startAnimation(btnScale);
                         String formula = editFormula.getText().toString();
                         // Создаём парсер

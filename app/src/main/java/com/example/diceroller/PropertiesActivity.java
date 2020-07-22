@@ -6,15 +6,19 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Switch;
+import android.media.MediaPlayer;
 
 public class PropertiesActivity extends AppCompatActivity {
     private Button btnBack, btnInfo;
     private SeekBar seekBarSpeed, seekBarNoR;
     private Switch switchSound;
-
+    boolean soundOn;
+    private MediaPlayer SelectSound;
     private static final String PREFS_FILE = "DicerollerPrefs";
     private static final String PREF_SOUND = "sound";
     private static final String PREF_NOR = "nor";
@@ -22,22 +26,44 @@ public class PropertiesActivity extends AppCompatActivity {
     SharedPreferences settings;
     SharedPreferences.Editor prefEditor;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_properties);
         settings = getSharedPreferences(PREFS_FILE, MODE_PRIVATE);
-
+        SelectSound = MediaPlayer.create(this, R.raw.select_menu);
+        // получаем первоначальные настройки
+        soundOn = settings.getBoolean(PREF_SOUND, true);
         setButtons();
+    }
+
+    protected void onResume() {
+        super.onResume();
+        // переполучаем настройки
+        soundOn = settings.getBoolean(PREF_SOUND, true);
+        /*Toast.makeText(
+                MainActivity.this,
+                "soundOn: " + String.valueOf(soundOn),
+                Toast.LENGTH_SHORT
+        ).show();*/
+    }
+
+    public void soundPlay (MediaPlayer sound) {
+        if(soundOn)
+            sound.start();
     }
 
     //Кнопка назад
     private void setButtons() {
+        final Animation btnScale = AnimationUtils.loadAnimation(this, R.anim.scale);
         btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        soundPlay(SelectSound);
+                        view.startAnimation(btnScale);
                         finish();
                     }
                 }
@@ -49,6 +75,8 @@ public class PropertiesActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        soundPlay(SelectSound);
+                        view.startAnimation(btnScale);
                         Intent intent = new Intent(".InfoActivity");
                         startActivity(intent);
                     }
