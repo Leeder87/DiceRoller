@@ -12,7 +12,6 @@
         android:layout_width="230dp"
         android:layout_height="120dp"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="80dp"
         android:layout_marginEnd="80dp"
         android:fontFamily="@font/saoui"
         android:shadowColor="#9ad6ff"
@@ -24,9 +23,11 @@
         android:textColor="#9ad6ff"
         android:textSize="36sp"
         android:typeface="monospace"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.21"
         tools:ignore="HardcodedText" />
 
     <Button
@@ -44,7 +45,7 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginStart="171dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="110dp"
         android:layout_marginEnd="171dp"
         android:background="@drawable/d10"
         app:layout_constraintEnd_toEndOf="parent"
