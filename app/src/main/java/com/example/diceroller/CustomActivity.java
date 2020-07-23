@@ -100,7 +100,7 @@ public class CustomActivity extends AppCompatActivity {
                         AlertDialog.Builder a_builder = new AlertDialog.Builder(CustomActivity.this, R.style.AlertDialogStyle);
                         view.startAnimation(btnScale);
                         a_builder.setMessage("You can use XdY blocks (where X and Y - positive integers) " +
-                                "and arithmetic signs \"+\", \"-\" and \"*\". " +
+                                "and arithmetic signs \"+\", \"-\" and \"*\" . \n\n" +
                                 "Spaces around the signs can be used at will. \n\n" +
                                 "Example: 2d20-1d6*4 + 13d643")
                                 .setCancelable(false)
