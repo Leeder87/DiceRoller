@@ -1,8 +1,13 @@
 package com.example.diceroller;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +21,7 @@ import java.util.Date;
 
 public class RollActivity extends AppCompatActivity {
     private Button btnD20, btnD12, btnD10, btnD8, btnD6, btnD4, btnD100;
-    private Button btnBack;
+    private Button btnBack, btnMiniHistory;
     private TextView resultTextView;
 
     SharedPreferences settings;
@@ -79,6 +84,7 @@ public class RollActivity extends AppCompatActivity {
         btnD4 = findViewById(R.id.btnD4);
         btnD100 = findViewById(R.id.btnD100);
         btnBack = findViewById(R.id.btnBack);
+        btnMiniHistory = findViewById(R.id.btnMiniHistory);
 
         // Этот список кнопок нужен для оптимизации блокировки и разблокировки кнопок
         final Button[] btnList = new Button[] {btnD4, btnD6, btnD8, btnD10, btnD12, btnD20, btnD100};
@@ -174,6 +180,17 @@ public class RollActivity extends AppCompatActivity {
                 }
         );
 
+        btnMiniHistory.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        soundPlay(SelectSound);
+                        view.startAnimation(btnScale);
+                        Intent intent = new Intent(".HistoryActivity");
+                        startActivity(intent);
+                    }
+                }
+        );
     }
 
     // Этот метод объединяет универсальную функциональность для кнопок-дайсов.

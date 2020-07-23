@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         soundPlay(SelectSound);
-                        AlertDialog.Builder a_builder = new AlertDialog.Builder(MainActivity.this);
+                        AlertDialog.Builder a_builder = new AlertDialog.Builder(MainActivity.this, R.style.AlertDialogStyle);
                         view.startAnimation(btnScale);
                         a_builder.setMessage("Are you sure you want to quit?")
                                 .setCancelable(false)
