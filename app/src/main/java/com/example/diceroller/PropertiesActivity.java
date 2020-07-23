@@ -14,7 +14,7 @@ import android.widget.Switch;
 import android.media.MediaPlayer;
 
 public class PropertiesActivity extends AppCompatActivity {
-    private Button btnBack, btnInfo;
+    private Button btnBack, btnMiniHistory;
     private SeekBar seekBarSpeed, seekBarNoR;
     private Switch switchSound;
     boolean soundOn;
@@ -70,14 +70,14 @@ public class PropertiesActivity extends AppCompatActivity {
         );
 
         //Кнопка Info
-        btnInfo = findViewById(R.id.btnInfo);
-        btnInfo.setOnClickListener(
+        btnMiniHistory = findViewById(R.id.btnMiniHistory);
+        btnMiniHistory.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         soundPlay(SelectSound);
                         view.startAnimation(btnScale);
-                        Intent intent = new Intent(".InfoActivity");
+                        Intent intent = new Intent(".HistoryActivity");
                         startActivity(intent);
                     }
                 }
