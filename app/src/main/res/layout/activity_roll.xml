@@ -17,7 +17,7 @@
         android:shadowColor="#9ad6ff"
 
         android:shadowRadius="0"
-        android:text="Press on dice:"
+        android:text="@string/press_on_dice"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#9ad6ff"
@@ -27,8 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.21"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintVertical_bias="0.15" />
 
     <Button
         android:id="@+id/btnD20"
@@ -37,8 +36,7 @@
         android:layout_marginEnd="40dp"
         android:background="@drawable/d20"
         app:layout_constraintEnd_toStartOf="@+id/btnD10"
-        app:layout_constraintTop_toTopOf="@+id/btnD10"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toTopOf="@+id/btnD10" />
 
     <Button
         android:id="@+id/btnD10"
@@ -50,8 +48,7 @@
         android:background="@drawable/d10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtResultRoll"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toBottomOf="@+id/txtResultRoll" />
 
     <Button
         android:id="@+id/btnD6"
@@ -60,8 +57,7 @@
         android:layout_marginStart="40dp"
         android:background="@drawable/d6"
         app:layout_constraintStart_toEndOf="@+id/btnD10"
-        app:layout_constraintTop_toTopOf="@+id/btnD10"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toTopOf="@+id/btnD10" />
 
     <Button
         android:id="@+id/btnD12"
@@ -70,8 +66,7 @@
         android:layout_marginEnd="40dp"
         android:background="@drawable/d12"
         app:layout_constraintEnd_toStartOf="@+id/btnD8"
-        app:layout_constraintTop_toTopOf="@+id/btnD8"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toTopOf="@+id/btnD8" />
 
     <Button
         android:id="@+id/btnD8"
@@ -81,8 +76,7 @@
         android:alpha="1"
         android:background="@drawable/d8"
         app:layout_constraintEnd_toEndOf="@+id/btnD10"
-        app:layout_constraintTop_toBottomOf="@+id/btnD10"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toBottomOf="@+id/btnD10" />
 
     <Button
         android:id="@+id/btnD4"
@@ -91,8 +85,7 @@
         android:layout_marginStart="40dp"
         android:background="@drawable/d4"
         app:layout_constraintStart_toEndOf="@+id/btnD8"
-        app:layout_constraintTop_toTopOf="@+id/btnD8"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toTopOf="@+id/btnD8" />
 
     <Button
         android:id="@+id/btnD100"
@@ -101,8 +94,7 @@
         android:layout_marginTop="40dp"
         android:background="@drawable/d100"
         app:layout_constraintEnd_toEndOf="@+id/btnD8"
-        app:layout_constraintTop_toBottomOf="@+id/btnD8"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toBottomOf="@+id/btnD8" />
 
     <Button
         android:id="@+id/btnBack"
@@ -113,4 +105,113 @@
         android:background="@drawable/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_d20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/d20"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/saoui"
+        app:layout_constraintEnd_toEndOf="@+id/btnD20"
+        app:layout_constraintStart_toStartOf="@+id/btnD20"
+        app:layout_constraintTop_toBottomOf="@+id/btnD20" />
+
+    <TextView
+        android:id="@+id/text_d10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/d10"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/saoui"
+        app:layout_constraintEnd_toEndOf="@+id/btnD10"
+        app:layout_constraintStart_toStartOf="@+id/btnD10"
+        app:layout_constraintTop_toBottomOf="@+id/btnD10" />
+
+    <TextView
+        android:id="@+id/text_d12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/d12"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/saoui"
+        app:layout_constraintEnd_toEndOf="@+id/btnD12"
+        app:layout_constraintStart_toStartOf="@+id/btnD12"
+        app:layout_constraintTop_toBottomOf="@+id/btnD12" />
+
+    <TextView
+        android:id="@+id/text_d8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/d8"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/saoui"
+        app:layout_constraintEnd_toEndOf="@+id/btnD8"
+        app:layout_constraintStart_toStartOf="@+id/btnD8"
+        app:layout_constraintTop_toBottomOf="@+id/btnD8" />
+
+    <TextView
+        android:id="@+id/text_d6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/d6"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/saoui"
+        app:layout_constraintEnd_toEndOf="@+id/btnD6"
+        app:layout_constraintStart_toStartOf="@+id/btnD6"
+        app:layout_constraintTop_toBottomOf="@+id/btnD6" />
+
+    <TextView
+        android:id="@+id/text_d4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/d4"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/saoui"
+        app:layout_constraintEnd_toEndOf="@+id/btnD4"
+        app:layout_constraintStart_toStartOf="@+id/btnD4"
+        app:layout_constraintTop_toBottomOf="@+id/btnD4" />
+
+    <TextView
+        android:id="@+id/text_d100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/d100"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/saoui"
+        app:layout_constraintEnd_toEndOf="@+id/btnD100"
+        app:layout_constraintStart_toStartOf="@+id/btnD100"
+        app:layout_constraintTop_toBottomOf="@+id/btnD100" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -79,6 +79,7 @@ public class RollActivity extends AppCompatActivity {
         btnD4 = findViewById(R.id.btnD4);
         btnD100 = findViewById(R.id.btnD100);
         btnBack = findViewById(R.id.btnBack);
+
         // Этот список кнопок нужен для оптимизации блокировки и разблокировки кнопок
         final Button[] btnList = new Button[] {btnD4, btnD6, btnD8, btnD10, btnD12, btnD20, btnD100};
         resultTextView = findViewById(R.id.txtResultRoll);
