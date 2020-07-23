@@ -101,7 +101,7 @@ public class CustomActivity extends AppCompatActivity {
                         view.startAnimation(btnScale);
                         a_builder.setMessage("You can use XdY blocks (where X and Y - positive integers) " +
                                 "and arithmetic signs \"+\", \"-\" and \"*\". " +
-                                "Spaces around the signs can be used at will. " +
+                                "Spaces around the signs can be used at will. \n\n" +
                                 "Example: 2d20-1d6*4 + 13d643")
                                 .setCancelable(false)
                                 .setNegativeButton("Ok:)", new DialogInterface.OnClickListener() {
