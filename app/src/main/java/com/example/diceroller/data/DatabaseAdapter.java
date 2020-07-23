@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -51,6 +52,7 @@ public class DatabaseAdapter {
             while (cursor.moveToNext());
         }
         cursor.close();
+        Collections.reverse(historyRecords);
         return historyRecords;
     }
 

@@ -21,6 +21,7 @@ import java.util.Date;
 
 public class RollActivity extends AppCompatActivity {
     private Button btnD20, btnD12, btnD10, btnD8, btnD6, btnD4, btnD100;
+    private TextView text_d20, text_d12, text_d10, text_d8, text_d6, text_d4, text_d100;
     private Button btnBack, btnMiniHistory;
     private TextView resultTextView;
 
@@ -47,11 +48,7 @@ public class RollActivity extends AppCompatActivity {
         SelectSound = MediaPlayer.create(this, R.raw.select_menu);
         // получаем первоначальные настройки
         soundOn = settings.getBoolean(PREF_SOUND, true);
-        /*Toast.makeText(
-                RollActivity.this,
-                "speed: " + String.valueOf(speed),
-                Toast.LENGTH_SHORT
-        ).show();*/
+
         setButtons(); // Вызов метода, привязывающего к кнопкам обработчики
     }
 
@@ -61,11 +58,6 @@ public class RollActivity extends AppCompatActivity {
         speed = settings.getLong(PREF_SPEED, 1000);
         numberOfRolls = settings.getInt(PREF_NOR, 1);
         soundOn = settings.getBoolean(PREF_SOUND, true);
-        /*Toast.makeText(
-                RollActivity.this,
-                "speed: " + String.valueOf(speed),
-                Toast.LENGTH_SHORT
-        ).show();*/
     }
 
     public void soundPlay (MediaPlayer sound) {
@@ -85,9 +77,17 @@ public class RollActivity extends AppCompatActivity {
         btnD100 = findViewById(R.id.btnD100);
         btnBack = findViewById(R.id.btnBack);
         btnMiniHistory = findViewById(R.id.btnMiniHistory);
+        text_d20 = findViewById(R.id.text_d20);
+        text_d12 = findViewById(R.id.text_d12);
+        text_d10 = findViewById(R.id.text_d10);
+        text_d8 = findViewById(R.id.text_d8);
+        text_d6 = findViewById(R.id.text_d6);
+        text_d4 = findViewById(R.id.text_d4);
+        text_d100 = findViewById(R.id.text_d100);
 
-        // Этот список кнопок нужен для оптимизации блокировки и разблокировки кнопок
-        final Button[] btnList = new Button[] {btnD4, btnD6, btnD8, btnD10, btnD12, btnD20, btnD100};
+        // Этот список кнопок нужен для оптимизации блокировки и разблокировки кнопок и подписей
+        final View[] viewList = new View[] {btnD4, btnD6, btnD8, btnD10, btnD12, btnD20, btnD100,
+                text_d4, text_d6, text_d8, text_d10, text_d12, text_d20, text_d100};
         resultTextView = findViewById(R.id.txtResultRoll);
 
         btnBack.setOnClickListener(
@@ -109,7 +109,7 @@ public class RollActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         soundPlay(SelectSound);
                         view.startAnimation(btnScale);
-                        onBtnClick(btnList, (Button) view,20);
+                        onBtnClick(viewList, view,20);
                     }
                 }
         );
@@ -120,7 +120,7 @@ public class RollActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         soundPlay(SelectSound);
                         view.startAnimation(btnScale);
-                        onBtnClick(btnList, (Button) view, 12);
+                        onBtnClick(viewList, view, 12);
                     }
                 }
         );
@@ -131,7 +131,7 @@ public class RollActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         soundPlay(SelectSound);
                         view.startAnimation(btnScale);
-                        onBtnClick(btnList, (Button) view, 10);
+                        onBtnClick(viewList, view, 10);
                     }
                 }
         );
@@ -142,7 +142,7 @@ public class RollActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         soundPlay(SelectSound);
                         view.startAnimation(btnScale);
-                        onBtnClick(btnList, (Button) view, 8);
+                        onBtnClick(viewList, view, 8);
                     }
                 }
         );
@@ -153,7 +153,7 @@ public class RollActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         soundPlay(SelectSound);
                         view.startAnimation(btnScale);
-                        onBtnClick(btnList, (Button) view, 6);
+                        onBtnClick(viewList, view, 6);
                     }
                 }
         );
@@ -164,7 +164,7 @@ public class RollActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         soundPlay(SelectSound);
                         view.startAnimation(btnScale);
-                        onBtnClick(btnList, (Button) view, 4);
+                        onBtnClick(viewList, view, 4);
                     }
                 }
         );
@@ -175,7 +175,7 @@ public class RollActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         soundPlay(SelectSound);
                         view.startAnimation(btnScale);
-                        onBtnClick(btnList, (Button) view, 100);
+                        onBtnClick(viewList, view, 100);
                     }
                 }
         );
@@ -194,14 +194,20 @@ public class RollActivity extends AppCompatActivity {
     }
 
     // Этот метод объединяет универсальную функциональность для кнопок-дайсов.
-    private void onBtnClick(final Button[] btnList, Button source, final int i) {
+    private void onBtnClick(final View[] viewList, View source, final int i) {
         // Заблокируем все кнопки-дайсы
-        for (Button btn : btnList) {
-            if(btn != source) {
-                btn.setEnabled(false);
-                btn.setAlpha((float) 0.5);
+        for (View view : viewList) {
+            if(view != source) {
+                view.setEnabled(false);
+                view.setAlpha((float) 0.5);
             }
         }
+
+        String labelId = "text_d" + i;
+        int resID = getResources().getIdentifier(labelId, "id", getPackageName());
+        TextView label = ((TextView) findViewById(resID));
+        label.setEnabled(true);
+        label.setAlpha((float) 1);
 
         // Генерируем криптослучайное число от 1 до i - максимального числа граней на кубике
         int result = RandomGenerator.generateInt(i);
@@ -209,7 +215,7 @@ public class RollActivity extends AppCompatActivity {
         // Запишем в окно вывода получившееся число
         resultTextView.setText(strResult);
         if (numberOfRolls == 1)
-            FinalizeRoll(strResult, i, btnList);
+            FinalizeRoll(strResult, i, viewList);
         else {
             int counter = 2;
             // Пауза между декоративными бросками кубика в миллисекундах.
@@ -239,22 +245,22 @@ public class RollActivity extends AppCompatActivity {
                     int result = RandomGenerator.generateInt(i);
                     String strResult = String.valueOf(result);
                     resultTextView.setText(strResult);
-                    FinalizeRoll(strResult, i, btnList);
+                    FinalizeRoll(strResult, i, viewList);
                 }
             }, changeTime * (counter - 1));
         }
     }
 
-    private void FinalizeRoll(String strResult, int i, Button[] btnList) {
+    private void FinalizeRoll(String strResult, int i, View[] viewList) {
         // Подготавливаем запись для истории бросков
         HistoryRecord historyRecord = new HistoryRecord(new Date(), "1d" + i,
                 "1d" + i, strResult, "Simple Roll");
         DatabaseHelper.insertRecord(getBaseContext(), historyRecord);
 
         // В последнем отложенном задании снова разблокируем кнопки
-        for (Button btn : btnList) {
-            btn.setEnabled(true);
-            btn.setAlpha((float) 1);
+        for (View view : viewList) {
+            view.setEnabled(true);
+            view.setAlpha((float) 1);
         }
     }
 
