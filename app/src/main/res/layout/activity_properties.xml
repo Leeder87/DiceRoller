@@ -96,4 +96,31 @@
         app:layout_constraintTop_toBottomOf="@+id/seekBarSpeed"
         tools:ignore="HardcodedText" />
 
+    <TextView
+        android:id="@+id/textSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/saoui"
+        android:letterSpacing="0.05"
+        android:textColor="#9ad6ff"
+        android:textSize="36sp"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textRolls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/saoui"
+        android:letterSpacing="0.05"
+        android:textColor="#9ad6ff"
+        android:textSize="36sp"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        tools:ignore="HardcodedText" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

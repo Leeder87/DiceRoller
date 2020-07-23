@@ -2,6 +2,7 @@ package com.example.diceroller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,10 +13,12 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.media.MediaPlayer;
+import android.widget.TextView;
 
 public class PropertiesActivity extends AppCompatActivity {
     private Button btnBack, btnMiniHistory;
     private SeekBar seekBarSpeed, seekBarNoR;
+    private TextView textSpeed, textRolls;
     private Switch switchSound;
     boolean soundOn;
     private MediaPlayer SelectSound;
@@ -36,6 +39,8 @@ public class PropertiesActivity extends AppCompatActivity {
         // получаем первоначальные настройки
         soundOn = settings.getBoolean(PREF_SOUND, true);
         setButtons();
+
+
     }
 
     protected void onResume() {
@@ -55,6 +60,7 @@ public class PropertiesActivity extends AppCompatActivity {
     }
 
     //Кнопка назад
+    @SuppressLint("SetTextI18n")
     private void setButtons() {
         final Animation btnScale = AnimationUtils.loadAnimation(this, R.anim.scale);
         btnBack = findViewById(R.id.btnBack);
@@ -86,6 +92,8 @@ public class PropertiesActivity extends AppCompatActivity {
         seekBarSpeed = findViewById(R.id.seekBarSpeed);
         seekBarNoR = findViewById(R.id.seekBarNoR);
         switchSound = findViewById(R.id.switchSound);
+        textSpeed = (TextView)findViewById(R.id.textSpeed);
+        textRolls = (TextView)findViewById(R.id.textRolls);
         // получаем настройки
         boolean soundOn = settings.getBoolean(PREF_SOUND, true);
         switchSound.setChecked(soundOn);
@@ -93,9 +101,37 @@ public class PropertiesActivity extends AppCompatActivity {
         // При этом 1 деление сикбара соответствует 500 миллисекундам.
         long speed = settings.getLong(PREF_SPEED, 1)/500;
         seekBarSpeed.setProgress((int)speed);
+        textSpeed.setText(speed*500 + " ms");
         // В настройках от 1 до 5, в сикбаре от 0 до 4.
         int numberOfRolls = settings.getInt(PREF_NOR, 1)-1;
         seekBarNoR.setProgress(numberOfRolls);
+        textRolls.setText(String.valueOf(numberOfRolls + 1));
+
+        seekBarSpeed.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,
+                                          boolean fromUser) {
+                textSpeed.setText(progress*500 + " ms");
+            }
+        });
+
+        seekBarNoR.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,
+                                          boolean fromUser) {
+                textRolls.setText(String.valueOf(progress + 1));
+            }
+        });
+
+
     }
 
     @Override
