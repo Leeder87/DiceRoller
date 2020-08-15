@@ -89,4 +89,35 @@
         android:background="@drawable/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnMem1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/memorize"
+        android:longClickable="true"
+        app:layout_constraintStart_toStartOf="@+id/btnRoll"
+        app:layout_constraintTop_toBottomOf="@+id/btnRoll" />
+
+    <Button
+        android:id="@+id/btnMem2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:text="@string/memorize"
+        android:longClickable="true"
+        app:layout_constraintEnd_toStartOf="@+id/btnMem3"
+        app:layout_constraintStart_toEndOf="@+id/btnMem1"
+        app:layout_constraintTop_toTopOf="@+id/btnMem1" />
+
+    <Button
+        android:id="@+id/btnMem3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/memorize"
+        android:longClickable="true"
+        app:layout_constraintEnd_toEndOf="@+id/btnRoll"
+        app:layout_constraintTop_toTopOf="@+id/btnMem2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
