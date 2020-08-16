@@ -178,7 +178,7 @@ public class CustomActivity extends AppCompatActivity {
                                 "and arithmetic signs \"+\", \"-\" and \"*\" . \n\n" +
                                 "Spaces around the signs can be used at will. \n\n" +
                                 "Example: 2d20-1d6*4 + 13d643")
-                                .setCancelable(false)
+                                .setCancelable(true)
                                 .setNegativeButton("Ok:)", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {

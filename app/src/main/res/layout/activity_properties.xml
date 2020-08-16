@@ -34,6 +34,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="20dp"
+        android:checked="false"
         android:fontFamily="@font/saoui"
         android:letterSpacing="0.05"
         android:text="Sound Off/On"
