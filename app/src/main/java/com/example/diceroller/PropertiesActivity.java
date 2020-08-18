@@ -14,11 +14,12 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 import android.media.MediaPlayer;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PropertiesActivity extends AppCompatActivity {
     private Button btnBack, btnMiniHistory;
     private SeekBar seekBarSpeed, seekBarNoR;
-    private TextView textSpeed, textRolls;
+    private TextView textSpeed, textRolls, lblSpeed, lblNoR;
     private Switch switchSound;
     boolean soundOn;
     private MediaPlayer SelectSound;
@@ -94,6 +95,9 @@ public class PropertiesActivity extends AppCompatActivity {
         switchSound = findViewById(R.id.switchSound);
         textSpeed = (TextView)findViewById(R.id.textSpeed);
         textRolls = (TextView)findViewById(R.id.textRolls);
+        lblSpeed = findViewById(R.id.lblSpeed);
+        lblNoR = findViewById(R.id.lblNoR);
+
         // получаем настройки
         boolean soundOn = settings.getBoolean(PREF_SOUND, true);
         switchSound.setChecked(soundOn);
@@ -131,7 +135,31 @@ public class PropertiesActivity extends AppCompatActivity {
             }
         });
 
+        lblSpeed.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(
+                                PropertiesActivity.this,
+                                "Length of an animation cycle in milliseconds",
+                                Toast.LENGTH_LONG
+                        ).show();
+                    }
+                }
+        );
 
+        lblNoR.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(
+                                PropertiesActivity.this,
+                                "Number of animations. If 1, the result is shown immediately.",
+                                Toast.LENGTH_LONG
+                        ).show();
+                    }
+                }
+        );
     }
 
     @Override

@@ -11,16 +11,35 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btnBack"
-            android:layout_width="50sp"
-            android:layout_height="50sp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/back"
-            android:textColor="#9ad6ff"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/back"
+                android:textColor="#9ad6ff"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/lblHeader"
+                android:layout_width="0dp"
+                android:layout_height="50sp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/saoui"
+                android:letterSpacing="0.05"
+                android:text="@string/history"
+                android:textColor="#9ad6ff"
+                android:textSize="36sp" />
+        </LinearLayout>
 
         <ListView
             android:id="@+id/list"
