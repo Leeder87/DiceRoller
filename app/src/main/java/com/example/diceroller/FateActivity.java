@@ -11,8 +11,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.media.MediaPlayer;
 
-public class SystemsActivity extends AppCompatActivity {
-    private Button btnBack, btnFate;
+public class FateActivity extends AppCompatActivity {
+    private Button btnBack, btnRoll;
     private MediaPlayer SelectSound;
     private static final String PREFS_FILE = "DicerollerPrefs";
     private static final String PREF_SOUND = "sound";
@@ -22,7 +22,7 @@ public class SystemsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_system);
+        setContentView(R.layout.activity_fate);
 
         SelectSound = MediaPlayer.create(this, R.raw.select_menu);
         // получаем первоначальные настройки
@@ -52,7 +52,6 @@ public class SystemsActivity extends AppCompatActivity {
     private void setButtons() {
         final Animation btnScale = AnimationUtils.loadAnimation(this, R.anim.scale);
         btnBack = findViewById(R.id.btnBack);
-        btnFate = findViewById(R.id.btnFate);
 
         btnBack.setOnClickListener(
                 new View.OnClickListener() {
@@ -65,17 +64,24 @@ public class SystemsActivity extends AppCompatActivity {
                 }
         );
 
-        btnFate.setOnClickListener(
+        btnRoll = findViewById(R.id.btnRoll);
+
+        btnRoll.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        soundPlay(SelectSound);
-                        Intent intent = new Intent(".FateActivity");
-                        view.startAnimation(btnScale);
-                        startActivity(intent);
+                        rollFudgeDice(view);
                     }
                 }
         );
+    }
+
+    private void rollFudgeDice(View view) {
+        final Animation btnScale = AnimationUtils.loadAnimation(this, R.anim.scale);
+        soundPlay(SelectSound);
+        view.startAnimation(btnScale);
+
+        // Тут будет логика броска
     }
 
 }

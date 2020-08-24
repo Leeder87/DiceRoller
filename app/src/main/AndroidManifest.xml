@@ -11,52 +11,59 @@
         android:supportsRtl="true"
         android:theme="@style/AppShort"
         tools:ignore="AllowBackup">
-
         <activity android:name=".PropertiesActivity">
             <intent-filter>
                 <action android:name=".PropertiesActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity android:name=".HistoryActivity">
             <intent-filter>
                 <action android:name=".HistoryActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity android:name=".InfoActivity">
             <intent-filter>
                 <action android:name=".InfoActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity android:name=".SystemsActivity">
             <intent-filter>
                 <action android:name=".SystemsActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity android:name=".CustomActivity">
             <intent-filter>
                 <action android:name=".CustomActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity android:name=".RollActivity">
             <intent-filter>
                 <action android:name=".RollActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".FateActivity">
+        <intent-filter>
+            <action android:name=".FateActivity" />
 
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+    </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#329393"
+tools:context=".FateActivity">
+
+
+<Button
+    android:id="@+id/btnBack"
+    android:layout_width="50sp"
+    android:layout_height="50sp"
+    android:layout_marginStart="15dp"
+    android:layout_marginTop="15dp"
+    android:background="@drawable/back"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+    <GridLayout
+        android:id="@+id/gridFate"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:rowCount="2"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="80dp"
+        android:columnCount="2">
+
+
+        <ImageView
+            android:id="@+id/imgFirst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+
+            android:background="@drawable/fate_plus"
+            android:shadowColor="#9ad6ff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.15"
+            android:contentDescription="@string/first_die" />
+        <ImageView
+            android:id="@+id/imgSecond"
+            android:shadowColor="#9ad6ff"
+            android:background="@drawable/fate_minus"
+            android:layout_margin="5dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.15"
+            android:contentDescription="@string/second_die" />
+        <ImageView
+            android:id="@+id/imgThird"
+            android:shadowColor="#9ad6ff"
+            android:background="@drawable/fate_empty"
+            android:layout_margin="5dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.15"
+            android:contentDescription="@string/third_die" />
+        <ImageView
+            android:id="@+id/imgFourth"
+            android:shadowColor="#9ad6ff"
+            android:background="@drawable/fate_plus"
+            android:layout_margin="5dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.15"
+            android:contentDescription="@string/fourth_die" />
+    </GridLayout>
+    <Button
+        android:id="@+id/btnRoll"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="56dp"
+        android:background="@drawable/roll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridFate" />
+</androidx.constraintlayout.widget.ConstraintLayout>

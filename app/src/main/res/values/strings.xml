@@ -12,4 +12,8 @@
 
 
     <string name="memorize">Memory</string>
+    <string name="first_die">First die</string>
+    <string name="second_die">Second die</string>
+    <string name="third_die">Third die</string>
+    <string name="fourth_die">Fourth die</string>
 </resources>
