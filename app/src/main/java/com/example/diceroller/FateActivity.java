@@ -2,6 +2,8 @@ package com.example.diceroller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.media.MediaPlayer;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.diceroller.data.DatabaseHelper;
 import com.example.diceroller.data.HistoryRecord;
@@ -17,7 +20,7 @@ import com.example.diceroller.data.HistoryRecord;
 import java.util.Date;
 
 public class FateActivity extends AppCompatActivity {
-    private Button btnBack, btnRoll;
+    private Button btnBack, btnRoll, btnMiniHistory;
     private MediaPlayer SelectSound;
     private static final String PREFS_FILE = "DicerollerPrefs";
     private static final String PREF_SOUND = "sound";
@@ -26,6 +29,7 @@ public class FateActivity extends AppCompatActivity {
     private long speed;
     private static final String PREF_SPEED = "speed";
     private ImageView imgFirst, imgSecond, imgThird, imgFourth;
+    private TextView txtPretty, txtResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,17 +88,36 @@ public class FateActivity extends AppCompatActivity {
                     }
                 }
         );
+
+        btnMiniHistory = findViewById(R.id.btnMiniHistory);
+
+        btnMiniHistory.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        soundPlay(SelectSound);
+                        view.startAnimation(btnScale);
+                        Intent intent = new Intent(".HistoryActivity");
+                        startActivity(intent);
+                    }
+                }
+        );
     }
 
+    @SuppressLint("SetTextI18n")
     private void rollFudgeDice(View view) {
         final Animation btnScale = AnimationUtils.loadAnimation(this, R.anim.scale);
         soundPlay(SelectSound);
         view.startAnimation(btnScale);
 
+        txtPretty = findViewById(R.id.txtPretty);
+        txtResult = findViewById(R.id.txtResult);
         imgFirst = findViewById(R.id.imgFirst);
         imgSecond = findViewById(R.id.imgSecond);
         imgThird = findViewById(R.id.imgThird);
         imgFourth = findViewById(R.id.imgFourth);
+        txtPretty.setText("");
+        txtResult.setText("");
         imgFirst.setImageResource(R.drawable.fate_empty);
         imgSecond.setImageResource(R.drawable.fate_empty);
         imgThird.setImageResource(R.drawable.fate_empty);
@@ -104,7 +127,7 @@ public class FateActivity extends AppCompatActivity {
         final FateDieResult secondDieResult = RandomGenerator.generateFudge();
         final FateDieResult thirdDieResult = RandomGenerator.generateFudge();
         final FateDieResult fourthDieResult = RandomGenerator.generateFudge();
-        HistoryRecord historyRecord = new HistoryRecord(new Date(), firstDieResult,
+        final HistoryRecord historyRecord = new HistoryRecord(new Date(), firstDieResult,
                 secondDieResult, thirdDieResult, fourthDieResult);
         DatabaseHelper.insertRecord(getBaseContext(), historyRecord);
         setFudgePicture(imgFirst, firstDieResult);
@@ -114,6 +137,9 @@ public class FateActivity extends AppCompatActivity {
             setFudgePicture(imgSecond, secondDieResult);
             setFudgePicture(imgThird, thirdDieResult);
             setFudgePicture(imgFourth, fourthDieResult);
+
+            txtPretty.setText(historyRecord.getFormulaProcessed());
+            txtResult.setText("Результат: " + historyRecord.getResult());
         } else {
             btnRoll.setEnabled(false);
             btnRoll.setAlpha((float) 0.5);
@@ -137,6 +163,8 @@ public class FateActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     setFudgePicture(imgFourth, fourthDieResult);
+                    txtPretty.setText(historyRecord.getFormulaProcessed());
+                    txtResult.setText("Результат: " + historyRecord.getResult());
                     btnRoll.setEnabled(true);
                     btnRoll.setAlpha((float) 1);
                 }
