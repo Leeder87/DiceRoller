@@ -2,7 +2,6 @@ package com.example.diceroller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +10,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.media.MediaPlayer;
 import android.widget.ImageView;
+
+import com.example.diceroller.data.DatabaseHelper;
+import com.example.diceroller.data.HistoryRecord;
+
+import java.util.Date;
 
 public class FateActivity extends AppCompatActivity {
     private Button btnBack, btnRoll;
@@ -96,19 +100,20 @@ public class FateActivity extends AppCompatActivity {
         imgThird.setImageResource(R.drawable.fate_empty);
         imgFourth.setImageResource(R.drawable.fate_empty);
 
-        FateDieResult firstDieResult = RandomGenerator.generateFudge();
-        SetFudgePicture(imgFirst, firstDieResult);
+        final FateDieResult firstDieResult = RandomGenerator.generateFudge();
+        final FateDieResult secondDieResult = RandomGenerator.generateFudge();
+        final FateDieResult thirdDieResult = RandomGenerator.generateFudge();
+        final FateDieResult fourthDieResult = RandomGenerator.generateFudge();
+        HistoryRecord historyRecord = new HistoryRecord(new Date(), firstDieResult,
+                secondDieResult, thirdDieResult, fourthDieResult);
+        DatabaseHelper.insertRecord(getBaseContext(), historyRecord);
+        setFudgePicture(imgFirst, firstDieResult);
 
         // Два варианта: мгновенное отображение или постепенное, с анимацией
         if (speed == 0) {
-            FateDieResult secondDieResult = RandomGenerator.generateFudge();
-            FateDieResult thirdDieResult = RandomGenerator.generateFudge();
-            FateDieResult fourthDieResult = RandomGenerator.generateFudge();
-
-            SetFudgePicture(imgSecond, secondDieResult);
-            SetFudgePicture(imgThird, thirdDieResult);
-            SetFudgePicture(imgFourth, fourthDieResult);
-
+            setFudgePicture(imgSecond, secondDieResult);
+            setFudgePicture(imgThird, thirdDieResult);
+            setFudgePicture(imgFourth, fourthDieResult);
         } else {
             btnRoll.setEnabled(false);
             btnRoll.setAlpha((float) 0.5);
@@ -119,22 +124,19 @@ public class FateActivity extends AppCompatActivity {
             btnRoll.postDelayed(new Runnable() {
                     @Override
                 public void run() {
-                    FateDieResult secondDieResult = RandomGenerator.generateFudge();
-                    SetFudgePicture(imgSecond, secondDieResult);
+                    setFudgePicture(imgSecond, secondDieResult);
                 }
             }, changeTime);
             btnRoll.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    FateDieResult thirdDieResult = RandomGenerator.generateFudge();
-                    SetFudgePicture(imgThird, thirdDieResult);
+                    setFudgePicture(imgThird, thirdDieResult);
                 }
             }, changeTime * 2);
             btnRoll.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    FateDieResult fourthDieResult = RandomGenerator.generateFudge();
-                    SetFudgePicture(imgFourth, fourthDieResult);
+                    setFudgePicture(imgFourth, fourthDieResult);
                     btnRoll.setEnabled(true);
                     btnRoll.setAlpha((float) 1);
                 }
@@ -144,7 +146,7 @@ public class FateActivity extends AppCompatActivity {
 
     }
 
-    private void SetFudgePicture(ImageView img, FateDieResult dieResult) {
+    private void setFudgePicture(ImageView img, FateDieResult dieResult) {
         switch (dieResult) {
             case MINUS:
                 img.setImageResource(R.drawable.fate_minus);

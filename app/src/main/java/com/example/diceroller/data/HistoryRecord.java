@@ -1,5 +1,7 @@
 package com.example.diceroller.data;
 
+import com.example.diceroller.FateDieResult;
+
 import java.util.Date;
 
 // Класс, отображающий запись в историю бросков
@@ -26,6 +28,46 @@ public class HistoryRecord {
         this.formulaProcessed = formulaProcessed;
         this.result = result;
         this.area = area;
+    }
+
+    // Отдельный конструктор для Fudge-дайсов
+    public HistoryRecord(Date rollTime, FateDieResult result1, FateDieResult result2, FateDieResult result3, FateDieResult result4) {
+        this.rollTime = rollTime;
+        this.formulaRaw = "4dF";
+        this.area = "Fate";
+
+        this.formulaProcessed = getFudgeCharacter(result1) +
+                getFudgeCharacter(result2) +
+                getFudgeCharacter(result3) +
+                getFudgeCharacter(result4);
+
+        int result = getFudgeValue(result1) +
+                getFudgeValue(result2) +
+                getFudgeValue(result3) +
+                getFudgeValue(result4);
+        this.result = String.valueOf(result);
+    }
+
+    private int getFudgeValue(FateDieResult dieResult) {
+        switch (dieResult) {
+            case MINUS:
+                return -1;
+            case PLUS:
+                return 1;
+            default:
+                return 0;
+        }
+    }
+
+    private String getFudgeCharacter(FateDieResult dieResult) {
+        switch (dieResult) {
+            case MINUS:
+                return "[-]";
+            case PLUS:
+                return "[+]";
+            default:
+                return "[ ]";
+        }
     }
 
     // Геттер для даты броска в миллисекундах с 1970 года
