@@ -35,7 +35,7 @@ tools:context=".FateActivity">
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
 
-            android:background="@drawable/fate_plus"
+            android:background="@drawable/fate_empty"
             android:shadowColor="#9ad6ff"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +46,7 @@ tools:context=".FateActivity">
         <ImageView
             android:id="@+id/imgSecond"
             android:shadowColor="#9ad6ff"
-            android:background="@drawable/fate_minus"
+            android:background="@drawable/fate_empty"
             android:layout_margin="5dp"
 
             app:layout_constraintBottom_toBottomOf="parent"
@@ -70,7 +70,7 @@ tools:context=".FateActivity">
         <ImageView
             android:id="@+id/imgFourth"
             android:shadowColor="#9ad6ff"
-            android:background="@drawable/fate_plus"
+            android:background="@drawable/fate_empty"
             android:layout_margin="5dp"
 
             app:layout_constraintBottom_toBottomOf="parent"

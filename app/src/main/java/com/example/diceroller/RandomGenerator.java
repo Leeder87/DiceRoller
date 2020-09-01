@@ -13,4 +13,24 @@ public class RandomGenerator {
         // Другой коммент для конфликта
         return rand.nextInt(max) + 1;
     }
+
+    public static FateDieResult generateFudge() {
+        SecureRandom rand = new SecureRandom();
+        int randomResult = rand.nextInt(3);
+        FateDieResult result = null;
+        switch(randomResult) {
+            case 0:
+                result = FateDieResult.MINUS;
+                break;
+
+            case 1:
+                result = FateDieResult.EMPTY;
+                break;
+
+            case 2:
+                result = FateDieResult.PLUS;
+                break;
+        }
+        return result;
+    }
 }
